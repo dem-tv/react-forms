@@ -12,7 +12,7 @@
     "prepare": "husky",
     "format:fix": "prettier --write .",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
