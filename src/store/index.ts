@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { dataListSlice } from '../modules/DataList/datalist.slice.ts';
 
 const rootReducer = combineReducers({
-  // select: selectSlice.reducer,
-  // [baseApi.reducerPath]: baseApi.reducer,
+  [dataListSlice.reducerPath]: dataListSlice.reducer,
 });
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
