@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
 const toBase64 = (file: File) =>
-  new Promise((resolve, reject) => {
+  new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
+    reader.onload = () => resolve(reader.result as string);
     reader.onerror = reject;
   });
 
@@ -46,7 +46,9 @@ export const Schema = z
     //     error: 'File must be image',
     //   }),
     image: z
-      .transform<File[], File | undefined>((filelist) => filelist[0])
+      .transform<File[] | undefined, File | undefined>((filelist) =>
+        filelist ? filelist[0] : undefined
+      )
       .refine((file) => file, {
         error: 'File must be uploaded',
       })

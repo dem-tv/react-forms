@@ -14,6 +14,7 @@ export function DataList() {
     const isNewCard = Date.now() - data.id < 100;
     return (
       <Card new={isNewCard} key={data.id}>
+        <img src={data.image} alt="Loaded image" />
         <Typography tagName={'p'}>
           <Typography bold tagName={'span'}>
             Name:{' '}
@@ -25,6 +26,30 @@ export function DataList() {
             Age:{' '}
           </Typography>
           {data.age}
+        </Typography>
+        <Typography tagName={'p'}>
+          <Typography bold tagName={'span'}>
+            Email:{' '}
+          </Typography>
+          {data.email}
+        </Typography>
+        <Typography tagName={'p'}>
+          <Typography bold tagName={'span'}>
+            Password:{' '}
+          </Typography>
+          {data.password}
+        </Typography>
+        <Typography tagName={'p'}>
+          <Typography bold tagName={'span'}>
+            Accepted terms:{' '}
+          </Typography>
+          {data.acceptTerms ? 'Yes' : 'No'}
+        </Typography>
+        <Typography tagName={'p'}>
+          <Typography bold tagName={'span'}>
+            Gender:{' '}
+          </Typography>
+          {data.male ? 'Male' : 'Female'}
         </Typography>
       </Card>
     );

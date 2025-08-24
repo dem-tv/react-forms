@@ -10,7 +10,7 @@ type Props = {
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export function Input(props: Props) {
-  const { name, value, setValue, label, ...restProps } = props;
+  const { name, value, setValue, label, errorMessage, ...restProps } = props;
 
   function onInput(event: React.ChangeEvent) {
     const { value } = event.target as HTMLInputElement;
@@ -36,12 +36,12 @@ export function Input(props: Props) {
         }
         {...restProps}
       />
-      {props.errorMessage ? (
+      {errorMessage ? (
         <Typography
           variant={'s'}
           className={'absolute -bottom-5 text-red-500 left-0'}
         >
-          {props.errorMessage}
+          {errorMessage}
         </Typography>
       ) : null}
     </div>
